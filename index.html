@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁💎 MARKETPLACE ALIIFARYAZX💎☁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            animation: gradientShift 8s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+            25% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+            50% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+            75% { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        }
+        
+        /* Scrolling Text Animation */
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+            animation: scroll 20s linear infinite;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            background-size: 200% 100%;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Typing Effect */
+        .typing-effect {
+            overflow: hidden;
+            border-right: 3px solid #fff;
+            white-space: nowrap;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #fff; }
+        }
+        
+        /* Floating Animation */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Glowing Effect */
+        .glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0073e6, 0 0 20px #0073e6; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0073e6, 0 0 40px #0073e6; }
+        }
+        
+        /* Card Animations */
+        .card-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+            opacity: 0;
+        }
+        .card-hover:hover::before {
+            animation: shine 0.5s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); opacity: 0; }
+        }
+        
+        /* Enhanced Pulse Animation */
+        .pulse-animation {
+            animation: pulse 2s infinite, colorChange 3s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes colorChange {
+            0%, 100% { color: #fff; }
+            33% { color: #ffeb3b; }
+            66% { color: #4caf50; }
+        }
+        
+        /* Bouncing Icons */
+        .bounce-icon {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Neon Text Effect */
+        .neon-text {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 20px #fff,
+                0 0 40px #0ff,
+                0 0 80px #0ff;
+            animation: flicker 1.5s infinite alternate;
+        }
+        @keyframes flicker {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 40px #0ff,
+                    0 0 80px #0ff;
+            }
+            50% { text-shadow: none; }
+        }
+        
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Rotating Border */
+        .rotating-border {
+            position: relative;
+            border-radius: 12px;
+        }
+        .rotating-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            padding: 2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            border-radius: inherit;
+            animation: rotate 3s linear infinite;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Scrolling Text Banner -->
+    <div class="bg-black/20 backdrop-blur-sm py-3 overflow-hidden">
+        <div class="scrolling-text text-2xl font-bold">
+            🔥 PROMO SPESIAL! HOSTING UNLIMITED HANYA 8K/BULAN! 🔥 SCRIPT BOT WA PREMIUM TERSEDIA! 🔥 JASA PASANG SCRIPT MURAH! 🔥 GARANSI 100% BERHASIL! 🔥
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white/10 backdrop-blur-md border-b border-white/20">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center">
+                <h1 class="text-3xl md:text-5xl font-bold text-white mb-2 neon-text floating">
+                    🔥MARKETPLACE ALIIFARYAZX🔥
+                </h1>
+                <p class="text-white/90 text-lg md:text-xl typing-effect glow">
+                    🛒 Menyediakan Hosting & Jasa Digital Berkualitas 🛍🐣
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Services Section -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8 mb-8 rotating-border">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center bounce-icon">🚀 Layanan Digital Kami</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl p-6 text-white card-hover cursor-pointer floating" onclick="showServiceDetails('bot-wa')" style="animation-delay: 0s;">
+                    <div class="text-3xl mb-3 bounce-icon">📦</div>
+                    <h3 class="font-bold text-lg mb-2">SCRIPT BOT WA MD VIP</h3>
+                    <p class="text-sm opacity-90">Bot WhatsApp Multi Device Premium</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-6 text-white card-hover cursor-pointer floating" onclick="showServiceDetails('bot-bug')" style="animation-delay: 0.5s;">
+                    <div class="text-3xl mb-3 bounce-icon">🐞</div>
+                    <h3 class="font-bold text-lg mb-2">SCRIPT BOT BUG VIP</h3>
+                    <p class="text-sm opacity-90">Bot Bug Premium Quality</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-500 to-teal-600 rounded-xl p-6 text-white card-hover cursor-pointer floating" onclick="showServiceDetails('jasa-pasang')" style="animation-delay: 1s;">
+                    <div class="text-3xl mb-3 bounce-icon">🛠</div>
+                    <h3 class="font-bold text-lg mb-2">JASA PASANG SC</h3>
+                    <p class="text-sm opacity-90">Rp 3.000 - Instalasi Script</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-6 text-white card-hover cursor-pointer floating" onclick="showServiceDetails('jasa-rename')" style="animation-delay: 1.5s;">
+                    <div class="text-3xl mb-3 bounce-icon">✨</div>
+                    <h3 class="font-bold text-lg mb-2">JASA RENAME SC</h3>
+                    <p class="text-sm opacity-90">Customize Script Name</p>
+                </div>
+            </div>
+
+            <!-- Important Note -->
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8 card-hover">
+                <div class="flex items-start">
+                    <div class="text-red-500 text-xl mr-3 bounce-icon">⚠️</div>
+                    <div>
+                        <h4 class="font-bold text-red-800 mb-2">PENTING!</h4>
+                        <p class="text-red-700 text-sm">
+                            HANYA MENERIMA BUYER YANG SERIUS DAN TIDAK MAU MENERIMA ORANG YANG HANYA TANYA DAN MENINGGALKAN PESANANNYA.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hosting Plans -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6 text-center glow">
+                💻 LIST HARGA PANEL PRIVATE ALIIFARYAZX
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Hosting Plans -->
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 0s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 1GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 40%</p>
+                    <div class="text-2xl font-bold pulse-animation">2K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('1GB', '2K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 0.2s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 2GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 50%</p>
+                    <div class="text-2xl font-bold pulse-animation">3K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('2GB', '3K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 0.4s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 3GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 80%</p>
+                    <div class="text-2xl font-bold pulse-animation">4K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('3GB', '4K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 0.6s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 4GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 110%</p>
+                    <div class="text-2xl font-bold pulse-animation">5K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('4GB', '5K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-500 to-pink-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 0.8s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 5GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 120%</p>
+                    <div class="text-2xl font-bold pulse-animation">6K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('5GB', '6K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 1s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 6GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 154%</p>
+                    <div class="text-2xl font-bold pulse-animation">6K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('6GB', '6K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-teal-500 to-green-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 1.2s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 7GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 160%</p>
+                    <div class="text-2xl font-bold pulse-animation">7K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('7GB', '7K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 1.4s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 8GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 180%</p>
+                    <div class="text-2xl font-bold pulse-animation">8K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('8GB', '8K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-pink-500 to-red-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 1.6s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 9GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 200%</p>
+                    <div class="text-2xl font-bold pulse-animation">9K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('9GB', '9K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl p-6 text-white card-hover floating" style="animation-delay: 1.8s;">
+                    <div class="text-2xl mb-3 bounce-icon">📮</div>
+                    <h3 class="font-bold text-lg mb-2">RAM 10GB</h3>
+                    <p class="text-sm opacity-90 mb-3">CPU 220%</p>
+                    <div class="text-2xl font-bold pulse-animation">10K/BULAN</div>
+                    <button class="w-full mt-4 bg-white/20 hover:bg-white/30 rounded-lg py-2 px-4 transition-all" onclick="orderPlan('10GB', '10K')">
+                        Pesan Sekarang
+                    </button>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="md:col-span-2 lg:col-span-3">
+                    <div class="bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 rounded-xl p-8 text-white card-hover text-center floating neon-text" style="animation-delay: 2s;">
+                        <div class="text-4xl mb-4 bounce-icon">🚀</div>
+                        <h3 class="font-bold text-2xl md:text-3xl mb-3">RAM UNLIMITED</h3>
+                        <p class="text-lg opacity-90 mb-4">CPU UNLIMITED</p>
+                        <div class="text-3xl md:text-4xl font-bold pulse-animation mb-4">8K/BULAN</div>
+                        <button class="bg-white/20 hover:bg-white/30 rounded-lg py-3 px-8 text-lg font-bold transition-all transform hover:scale-105" onclick="orderPlan('UNLIMITED', '8K')">
+                            🔥 PESAN PAKET PREMIUM 🔥
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <footer class="bg-white/10 backdrop-blur-md border-t border-white/20 mt-12">
+        <div class="container mx-auto px-4 py-8 text-center">
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-4 glow">📞 Hubungi Kami</h3>
+            <p class="text-white/90 mb-4 floating">Siap melayani Anda 24/7 untuk semua kebutuhan digital!</p>
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105 bounce-icon" onclick="contactWhatsApp()">
+                💬 Chat WhatsApp
+            </button>
+        </div>
+    </footer>
+
+    <!-- Modal for Service Details -->
+    <div id="serviceModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 m-4 max-w-md w-full card-hover">
+            <div class="text-center">
+                <div id="modalIcon" class="text-6xl mb-4 bounce-icon"></div>
+                <h3 id="modalTitle" class="text-2xl font-bold mb-4"></h3>
+                <p id="modalDescription" class="text-gray-600 mb-6"></p>
+                <div class="flex gap-4">
+                    <button class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all transform hover:scale-105" onclick="contactForService()">
+                        Pesan Sekarang
+                    </button>
+                    <button class="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-3 px-6 rounded-lg transition-all" onclick="closeModal()">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        function showServiceDetails(service) {
+            const modal = document.getElementById('serviceModal');
+            const icon = document.getElementById('modalIcon');
+            const title = document.getElementById('modalTitle');
+            const description = document.getElementById('modalDescription');
+
+            const services = {
+                'bot-wa': {
+                    icon: '📦',
+                    title: 'SCRIPT BOT WA MD VIP',
+                    description: 'Bot WhatsApp Multi Device dengan fitur premium lengkap. Cocok untuk bisnis dan personal use dengan performa tinggi.'
+                },
+                'bot-bug': {
+                    icon: '🐞',
+                    title: 'SCRIPT BOT BUG VIP',
+                    description: 'Script bot bug premium dengan kualitas terbaik dan performa tinggi. Dilengkapi dengan fitur canggih.'
+                },
+                'jasa-pasang': {
+                    icon: '🛠',
+                    title: 'JASA PASANG SC - Rp 3.000',
+                    description: 'Layanan instalasi script profesional dengan garansi berhasil dan support lengkap. Tim ahli siap membantu.'
+                },
+                'jasa-rename': {
+                    icon: '✨',
+                    title: 'JASA RENAME SC',
+                    description: 'Customize nama script sesuai keinginan Anda dengan hasil profesional dan berkualitas tinggi.'
+                }
+            };
+
+            const serviceData = services[service];
+            icon.textContent = serviceData.icon;
+            title.textContent = serviceData.title;
+            description.textContent = serviceData.description;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function orderPlan(ram, price) {
+            // Create a more engaging notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white p-4 rounded-lg shadow-lg z-50 transform translate-x-full transition-transform duration-300';
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <div class="text-2xl mr-3">🎉</div>
+                    <div>
+                        <div class="font-bold">Paket Dipilih!</div>
+                        <div class="text-sm">${ram} - ${price}/bulan</div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+            
+            setTimeout(() => {
+                contactWhatsApp();
+            }, 1000);
+        }
+
+        function contactForService() {
+            contactWhatsApp();
+            closeModal();
+        }
+
+        function contactWhatsApp() {
+            // Replace with actual WhatsApp number
+            const message = encodeURIComponent('Halo! Saya tertarik dengan layanan MARKETPLACE ALIIFARYAZX. Mohon informasi lebih lanjut.');
+            window.open(`https://wa.me/6285758418180?text=${message}`, '_blank', 'noopener,noreferrer');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('serviceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Initialize particles when page loads
+        window.addEventListener('load', function() {
+            createParticles();
+        });
+
+        // Add some interactive effects
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.createElement('div');
+            cursor.className = 'fixed w-2 h-2 bg-white/30 rounded-full pointer-events-none z-50';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.animation = 'fade-out 1s ease-out forwards';
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                if (cursor.parentNode) {
+                    cursor.parentNode.removeChild(cursor);
+                }
+            }, 1000);
+        });
+
+        // Add fade-out animation for cursor trail
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fade-out {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'989e861ec4ab0fad',t:'MTc1OTY4NDEzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
